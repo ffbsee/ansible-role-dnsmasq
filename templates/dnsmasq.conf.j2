@@ -1,0 +1,23 @@
+# DNS port (default 53, disable with 0)
+port={{ dnsmasq_dns_port }}
+# Listen only on the specified interface
+interface={{ dnsmasq_interface }}
+
+# define the dhcp ip range and mode used
+# Note: the interface must have IP from this subnet
+dhcp-range={{ dnsmasq_dhcp_range }}
+
+# set tags for mac
+{% for mac in dnsmasq_dhcp_macs %}
+dhcp-mac={{ mac }}
+{% endfor %}
+
+# allow static dhcp for mac
+{% for host in dnsmasq_dhcp_hosts %}
+dhcp-host={{ host }}
+{% endfor %}
+
+{% if dnsmasq_dhcp_exclusive %}
+# deny unknown clients
+dhcp-ignore=tag:!known
+{% endif %}

@@ -1,0 +1,22 @@
+---
+- name: install dnsmasq package
+  apt:
+    pkg: 
+    - dnsmasq
+    state: present
+
+- name: configure dnsmasq
+  ansible.builtin.template:
+    src: dnsmasq.conf.j2
+    dest: /etc/dnsmasq.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart dnsmasq
+
+- name: dnsmasq restared
+  ansible.builtin.systemd:
+    state: "{{ dnsmasq_enabled | ternary('started', 'stopped') }}"
+    enabled: "{{ dnsmasq_enabled }}"
+    daemon_reload: yes
+    name: dnsmasq

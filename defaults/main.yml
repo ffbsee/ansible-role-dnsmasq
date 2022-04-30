@@ -1,0 +1,17 @@
+---
+# dnsmasq config
+dnsmasq_enabled: true
+dnsmasq_interface: eth0
+dnsmasq_dns_port: 53
+dnsmasq_default_tag: red
+dnsmasq_dhcp_range: "tag:{{ dnsmasq_default_tag }},192.168.200.3,192.168.200.15,12h"
+dnsmasq_dhcp_macs: []
+  # example
+  #- "set:{{ dnsmasq_default_tag }},00:0d:b9:*:*:*"
+dnsmasq_dhcp_hosts: []
+  # example
+  #- "00:0d:b9:*:*:*,set:{{ dnsmasq_default_tag }}"
+dnsmasq_log: false
+dnsmasq_log_path: /var/log
+dnsmasq_log_file: "{{ dnsmasq_log_path }}/dnsmasq.log"
+dnsmasq_dhcp_exclusive: false
