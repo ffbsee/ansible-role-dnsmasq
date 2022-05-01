@@ -1,7 +1,7 @@
 ---
 # dnsmasq config
 dnsmasq_enabled: true
-dnsmasq_interface: eth0
+dnsmasq_interface: enp3n1s
 dnsmasq_dns_port: 53
 dnsmasq_default_tag: red
 dnsmasq_dhcp_range: "tag:{{ dnsmasq_default_tag }},192.168.200.3,192.168.200.15,12h"
