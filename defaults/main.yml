@@ -2,7 +2,8 @@
 # dnsmasq config
 dnsmasq_enabled: true
 dnsmasq_interface: enp3n1s
-dnsmasq_dns_port: 53
+# to enable dns set dnsport to != 0 (e.g. 53)
+dnsmasq_dns_port: 0
 dnsmasq_default_tag: red
 dnsmasq_dhcp_range: "tag:{{ dnsmasq_default_tag }},192.168.200.3,192.168.200.15,12h"
 dnsmasq_dhcp_macs: []
