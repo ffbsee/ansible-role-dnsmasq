@@ -6,6 +6,9 @@
 port={{ dnsmasq_dns_port }}
 # Listen only on the specified interface
 interface={{ dnsmasq_interface }}
+{% for iface in dnsmasq_no_dhcp_interfaces %}
+no-dhcp-interface={{ iface }}
+{% endfor %}
 
 # define the dhcp ip range and mode used
 # Note: the interface must have IP from this subnet

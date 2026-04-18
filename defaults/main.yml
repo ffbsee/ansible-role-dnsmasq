@@ -12,6 +12,8 @@ dnsmasq_dhcp_macs: []
 dnsmasq_dhcp_hosts: []
   # example
   #- "00:0d:b9:*:*:*,set:{{ dnsmasq_default_tag }}"
+# interfaces that must never serve DHCP
+dnsmasq_no_dhcp_interfaces: []
 dnsmasq_log: false
 dnsmasq_log_path: /var/log
 dnsmasq_log_file: "{{ dnsmasq_log_path }}/dnsmasq.log"
